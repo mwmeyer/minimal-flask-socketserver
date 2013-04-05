@@ -1,0 +1,14 @@
+<script src="/static/js/socketio/socket.io.min.js"></script>
+<script>
+var WEB_SOCKET_SWF_LOCATION = '/static/js/socketio/WebSocketMain.swf',
+    socket = io.connect('/foo');
+
+socket.on('connect', function () {
+    console.log('Websocket Connected...')
+    socket.emit('event_from_client',  'data from the client');
+});
+
+socket.on('event_from_server', function (msg) {
+    console.log(msg)
+});
+</script>
